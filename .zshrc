@@ -1,4 +1,4 @@
-export ZSH="$HOME/lib/oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="dogenpunk"
 export DISABLE_AUTO_UPDATE="true"
 export OH_MY_ZSH_DEBUG="true"
@@ -20,7 +20,6 @@ alias tm='tmux -u2'
 alias c='clear'
 alias bp='bpython'
 alias vim='mvim -v'
-source $HOME/lib/aliases
 
 export DISABLE_AUTO_TITLE="true"
 
@@ -58,19 +57,6 @@ export PATH="$HOME/lib/hg/hg-stable:$PATH"
 # export PYTHONPATH="$HOME/lib/hg/hg-stable:$PYTHONPATH"
 
 # Extra ----------------------------------------------------------------------
-source ~/lib/z/z.sh
-
-# Pre-Prompt Command ---------------------------------------------------------
-function precmd () {
-    z --add "$(pwd -P)"
-}
 
 # Local Settings -------------------------------------------------------------
 if [[ -s $HOME/.zshrc_local ]] ; then source $HOME/.zshrc_local ; fi
-
-# Emacs... -------------------------------------------------------------------
-alias e='emacsclient -nc .'
-
-export PATH=/usr/local/Cellar/ruby/1.9.3-p125/bin:$PATH
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
