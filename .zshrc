@@ -19,13 +19,11 @@ alias oldgcc='export CC=/usr/bin/gcc-4.0'
 alias tm='tmux -u2'
 alias c='clear'
 alias bp='bpython'
-alias vim='mvim -v'
 
 export DISABLE_AUTO_TITLE="true"
 
 # Environment variables ------------------------------------------------------
 export EDITOR='vim'
-export PATH="/usr/local/share/python:${PATH}"
 export PATH="$HOME/bin:${PATH}"
 export PATH="$HOME/lib/dotfiles/bin:${PATH}"
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH"
@@ -35,7 +33,6 @@ export HISTFILESIZE=1000
 export HISTCONTROL=erasedups
 export COMMAND_MODE=unix2003
 export RUBYOPT=rubygems
-export CLASSPATH="$CLASSPATH:/usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar"
 
 # Python variables -----------------------------------------------------------
 # export PIP_DOWNLOAD_CACHE="$HOME/.pip/cache"
