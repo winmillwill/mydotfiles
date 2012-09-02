@@ -1,0 +1,5 @@
+data/.hgignore.i
+data/colors/badwolf.vim.i
+data/package.sh.i
+data/.hgtags.i
+data/README.markdown.i
