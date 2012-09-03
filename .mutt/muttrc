@@ -1,0 +1,189 @@
+#
+# Kevin McCarthy's mutt configuration file
+#
+
+
+#
+# Booleans
+#
+unset arrow_cursor         # use arrow cursor
+unset askbcc               # don't prompt for bcc's
+unset askcc                # don't prompt for cc's
+# set   autoedit             # try composing without the prompts...
+unset beep                 # don't beep on error
+unset beep_new             # don't beep on new message
+set   bounce_delivered     # unset: remove Delivered-To: when bouncing?
+unset collapse_unread      # don't collapse threads with unread mails
+set   uncollapse_jump      # jump to unread message when uncollapse
+set   confirmappend        # may want to change this later
+set   copy                 # save copies of sent messages
+set   delete               # don't ask me to delete messages - just do it!
+set   edit_headers         # display the headers when I'm editing a message
+set   fast_reply           # don't prompt for stuff when replying
+set   followup_to          # add Mail-Followup-To header
+set   help                 # show help on first line of display
+unset mark_old             # don't mark unread messages as Old
+# unset meeto              # remove my email from list of recipients
+unset menu_scroll          # scroll menu a page on last line
+set   narrow_tree          # narrow threading trees
+set   pager_stop           # don't go to next message at end of message
+set   sort_re              # thread using Re:<subjects> too
+# unset strict_threads       # allow threading by sort_re
+set strict_threads         # don't allow threading by sort_re
+unset wait_key             # don't prompt for a key after external commands
+unset mail_check_recent    # keep telling me a mailbox has new mail even if I
+                           # visit it (added in 1.5.21)
+set ssl_force_tls          # make sure all conections are encrypted
+
+
+#
+# Quadoptions
+#
+set abort_nosubject=ask-yes     # abort if no subject
+set abort_unmodified=ask-yes    # abort if message wasn't edited
+set mime_forward=ask-no         # forward messages as rfc822 attachments
+                                #   - useful for forwarding attachments too
+set move=no                     # don't move messages to mbox and don't ask
+set pager_context=1             # display one line on pgup/pgdown
+set pager_index_lines=8         # display 8 lines of the index while viewing messages
+set print=ask-no                # 'p' is print - probably I don't want to
+set quit=ask-yes                # I've hit q by accident a few times
+set reply_to=ask-yes            # ask to use from or reply-to
+set recall=no                   # Don't ask about postponed when composing
+                                # just use 'R' to recall postponed messages
+
+#
+# Name-values
+#
+set alias_file=~/.mutt/aliases
+source ~/.mutt/aliases
+set editor="vim -X '+/^$' '++'"
+# set editor="gvim -f '+/^$'"
+set mail_check=90              # How often to check in seconds
+set timeout=60                 # How long to wait for user input
+                               # at menus or prompts before timing out
+set ispell="aspell -e -c"
+
+set certificate_file=~/.mutt/certificates # move certs file inside .mutt dir
+
+set postponed="=postponed"
+
+# set print_command="enscript -G2r -Psscanon1-2"
+# set print_command="enscript -G2r -Pskinner"
+# set print_command="enscript -G2r -Pkang"
+# set print_command="enscript -G2r -Pstanford"
+# set print_command="enscript -G2r"
+set print_command="enscript -G"
+# set print_command="muttprint"
+
+# set query_command="/usr/local/scripts/mutt-ldap"
+# set query_command="~/.mutt/bin/ldapsearch.sh '%s'"
+# set query_command="abook --mutt-query '%s'"
+set query_command="lbdbq '%s'"
+
+# macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
+macro index,pager A "<pipe-message>lbdb-fetchaddr -a<return>" "add the sender address to lbdb"
+
+# set index_format="%4C %Z %{%b %d} %-15.15L %?M?>#%03M<&(%4l)? %s"
+# set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+# set index_format="%4C %Z  %[%a %b %d %Y %X]  %-15.15L (%?l?%4l&%4c?) %s"
+# set index_format="%4C %Z  %[%a %x %X]  %-15.15L (%?l?%4l&%4c?) %s"
+# set index_format="%4C %[%a %x %X]  %-15.15L %Z (%?l?%4l&%4c?) %s"
+set index_format="%4C %[%a %x %X]  %-15.15F %Z (%4c) %s"
+
+set attribution="%n wrote:"
+set sleep_time=0              # Don't pause between mailbox changes
+
+#
+# Mail sorting
+#
+set sort=threads            # try this for a while
+# set sort_aux=date-sent      # secondary sorting (for threads)
+set sort_aux=last-date-received      # secondary sorting (for threads)
+
+
+#
+# Says we prefer plain text to html in multiparts
+#
+alternative_order text/plain
+
+#
+# Says to consult mime.types for determining types of these attachments
+#
+mime_lookup application/octet-stream
+
+
+#
+# Useful keys to remember:
+#
+# INDEX:
+# &    - link broken threads
+#        first tag the reply, then moving to the parent message and hit '&'
+# #    - break thread
+#        turns the subthread starting from the current message into a whole
+#        different thread.
+# =    - first message
+# *    - last message
+#
+# PAGER:
+# ^  jump to top of message
+# -  previous-page
+
+#
+# MIME autoviewing.  Requires appropriate .mailcap entry
+# (with copiousoutput flag set)
+#
+auto_view text/html application/msword application/pdf
+auto_view application/vnd.oasis.opendocument.text
+
+#
+# Macros
+#
+# macro index ,a <save-message>=archive\n
+# macro pager ,a <save-message>=archive\n
+
+# ctrl-b
+macro index \cb |urlview\n
+macro pager \cb |urlview\n
+
+
+#
+# GPG
+#
+set pgp_autosign=no
+
+set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
+set pgp_verify_command="gpg --status-fd=2 --no-verbose --quiet --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --quiet --output - %?p?--passphrase-fd 0? --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --quiet --output - %?p?--passphrase-fd 0? --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command="/usr/lib/mutt/pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
+set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap gpg %?p?--passphrase-fd 0? --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
+set pgp_import_command="gpg --no-verbose --import %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg --verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --quiet --with-colons --list-keys %r" 
+set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons --list-secret-keys %r" 
+set pgp_good_sign="^\\[GNUPG:\\] GOODSIG"
+
+#
+# Colors
+#
+source ~/.mutt/colors.kjm
+
+
+#
+# Headers to ignore
+#
+ignore *
+unignore From Message-ID Date User-Agent To Cc Bcc Subject
+unignore Delivery-date
+unignore x-mailer x-url
+unignore X-Delivered-to Delivered-To
+unignore x-spam-score authentication-results
+unignore x-face
+
+hdr_order date from to cc subject
+
+# source ~/.mutt/muttrc.local
+source ~/.mutt/muttrc.local.$LOCAL_CONFIG
