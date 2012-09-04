@@ -55,8 +55,6 @@ set recall=no                   # Don't ask about postponed when composing
 #
 # Name-values
 #
-set alias_file=~/.mutt/aliases
-source ~/.mutt/aliases
 set editor="vim -X '+/^$' '++'"
 # set editor="gvim -f '+/^$'"
 set mail_check=90              # How often to check in seconds
@@ -169,7 +167,7 @@ set pgp_good_sign="^\\[GNUPG:\\] GOODSIG"
 #
 # Colors
 #
-source ~/.mutt/colors.kjm
+source ~/.mutt/mutt-colors-solarized-light-16.muttrc
 
 
 #

@@ -2,7 +2,7 @@
 # mutt configuration specific to gmail using IMAP
 #
 
-set from="YOUREMAIL@gmail.com"
+source ~/.mutt/gmail.creds.muttrc
 
 ###########################################
 # Mail/SMTP/IMAP Settings
@@ -10,8 +10,6 @@ set from="YOUREMAIL@gmail.com"
 
 set my_server=imap.gmail.com
 set my_smtp_server=smtp.gmail.com
-set my_user=YOUREMAIL@gmail.com
-set my_pass=YOURPASSWORD
 
 set header_cache=~/.mutt/hcache/gmail
 
