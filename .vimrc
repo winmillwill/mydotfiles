@@ -7,10 +7,11 @@
 
 " Preamble ---------------------------------------------------------------- {{{
 
-filetype off
-call pathogen#runtime_append_all_bundles()
+set nocp
+set rtp+=$HOME/.vim/autoload/pathogen
+call pathogen#infect()
+syntax on
 filetype plugin indent on
-set nocompatible
 inoremap <c-q> <ESC>
 inoremap jk <ESC>
 
