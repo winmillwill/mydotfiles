@@ -37,3 +37,6 @@
 [submodule ".vim/autoload/pathogen"]
 	path = .vim/autoload/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule ".vim/bundle/rainbow-parens"]
+	path = .vim/bundle/rainbow-parens
+	url = https://github.com/vim-scripts/Rainbow-Parenthesis
