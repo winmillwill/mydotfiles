@@ -1,0 +1,36 @@
+[general]
+ui = TTY.TTYUI
+accounts = GMail, PrometHost
+pythonfile=~/.mutt/offlineimap.py
+
+[Account PrometHost]
+localrepository = PrometHost-Local
+remoterepository = PrometHost-Remote
+
+[Repository PrometHost-Local]
+type = Maildir
+localfolders = ~/.mail/promethost.com
+
+[Repository PrometHost-Remote]
+type = Gmail
+cert_fingerprint=f3043dd689a2e7dddfbef82703a6c65ea9b634c1
+remoteuser = will@promethost.com
+remotepasseval = get_keychain_pass(account="will@promethost.com", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: re.sub('.*Spam$', 'spam', re.sub('.*Drafts$', 'drafts', re.sub('.*Sent Mail$', 'sent', re.sub('.*Starred$', 'flagged', re.sub('.*Trash$', 'trash', re.sub('.*All Mail$', 'archive', folder))))))
+
+[Account GMail]
+localrepository = GMail-Local
+remoterepository = GMail-Remote
+
+[Repository GMail-Local]
+type = Maildir
+localfolders = ~/.mail/gmail.com
+
+[Repository GMail-Remote]
+type = Gmail
+remoteuser = wa.milton@gmail.com
+cert_fingerprint=f3043dd689a2e7dddfbef82703a6c65ea9b634c1
+remotepasseval = get_keychain_pass(account="wa.milton@gmail.com", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: re.sub('.*Spam$', 'spam', re.sub('.*Drafts$', 'drafts', re.sub('.*Sent Mail$', 'sent', re.sub('.*Starred$', 'flagged', re.sub('.*Trash$', 'trash', re.sub('.*All Mail$', 'archive', folder))))))
