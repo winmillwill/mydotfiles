@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/rainbow-parens"]
 	path = .vim/bundle/rainbow-parens
 	url = https://github.com/vim-scripts/Rainbow-Parenthesis
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
