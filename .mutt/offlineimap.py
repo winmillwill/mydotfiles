@@ -1,15 +1,9 @@
 #!/usr/bin/python
-import re, subprocess
-def get_keychain_pass(account=None, server=None):
-    params = {
-        'security': '/usr/bin/security',
-        'command': 'find-internet-password',
-        'account': account,
-        'server': server,
-    }
-    command = "sudo -u willmilton %(security)s -v %(command)s -g -a %(account)s -s %(server)s" % params
-    output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
-    outtext = [l for l in output.splitlines()
-               if l.startswith('password: ')][0]
+import re, os
 
-    return re.match(r'password: "(.*)"', outtext).group(1)
+def get_gpg_pass(account=None):
+  s = "%s ([^ ]*)\n$" % (account)
+  p = re.compile(s)
+  authinfo = os.popen("gpg -q -d ~/.authinfo.gpg").read()
+  print authinfo
+  return p.search(authinfo).group(1)
