@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/vim-orgmode"]
 	path = .vim/bundle/vim-orgmode
 	url = https://github.com/jceb/vim-orgmode.git
+[submodule ".vim/bundle/textile"]
+	path = .vim/bundle/textile
+	url = git://github.com/timcharper/textile.vim.git
