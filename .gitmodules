@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/textile"]
 	path = .vim/bundle/textile
 	url = git://github.com/timcharper/textile.vim.git
+[submodule ".vim/bundle/plantuml"]
+	path = .vim/bundle/plantuml
+	url = git://github.com/aklt/plantuml-syntax.git
