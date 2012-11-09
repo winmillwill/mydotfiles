@@ -16,6 +16,7 @@ type = Gmail
 cert_fingerprint=f3043dd689a2e7dddfbef82703a6c65ea9b634c1
 remoteuser = will@promethost.com
 remotepasseval = get_gpg_pass(account="will@promethost.com")
+folderfilter = lambda foldername: foldername not in '[Gmail]/All Mail'
 realdelete = no
 nametrans = lambda folder: re.sub('.*Spam$', 'spam', re.sub('.*Drafts$', 'drafts', re.sub('.*Sent Mail$', 'sent', re.sub('.*Starred$', 'flagged', re.sub('.*Trash$', 'trash', re.sub('.*All Mail$', 'archive', folder))))))
 
@@ -30,6 +31,7 @@ localfolders = ~/.mail/gmail.com
 [Repository GMail-Remote]
 type = Gmail
 remoteuser = wa.milton@gmail.com
+folderfilter = lambda foldername: foldername not in '[Gmail]/All Mail'
 cert_fingerprint=f3043dd689a2e7dddfbef82703a6c65ea9b634c1
 realdelete = no
 nametrans = lambda folder: re.sub('.*Spam$', 'spam', re.sub('.*Drafts$', 'drafts', re.sub('.*Sent Mail$', 'sent', re.sub('.*Starred$', 'flagged', re.sub('.*Trash$', 'trash', re.sub('.*All Mail$', 'archive', folder))))))
