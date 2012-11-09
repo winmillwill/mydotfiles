@@ -1,5 +1,5 @@
 set from      = "will@promethost.com"
-set sendmail  = "/usr/local/bin/msmtp -a will@promethost.com"
+set sendmail  = "/usr/bin/msmtp -a will@promethost.com"
 set mbox      = "+promethost.com/archive"
 unset record
 set postponed = "+promethost.com/drafts"
