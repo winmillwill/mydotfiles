@@ -1,0 +1,29 @@
+[core]
+	excludesfile = /Users/willmilton/.gitignore_global
+[alias]
+	st = status
+	di = diff
+	co = checkout
+	ci = commit
+	br = branch
+	sta = stash
+	llog = log --date=local
+[apply]
+	whitespace = nowarn
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = auto
+[branch]
+	autosetupmerge = true
+[push]
+	default = matching
+[user]
+	name = Will Milton
+	email = will@promethost.com
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[mergetool]
+	tool = fugitive
