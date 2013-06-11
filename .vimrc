@@ -477,6 +477,18 @@ augroup ft_fish
 augroup END
 
 " }}}
+" Go {{{
+
+augroup ft_go
+    au!
+
+    au BufNewFile,BufRead *.go setlocal filetype=go
+    au FileType go setlocal tabstop=4
+    au FileType go setlocal shiftwidth=4
+    au FileType go setlocal softtabstop=4
+augroup END
+
+" }}}
 " Haskell {{{
 
 augroup ft_haskell
@@ -563,6 +575,9 @@ augroup ft_markdown
     au!
 
     au BufNewFile,BufRead *.m*down setlocal filetype=markdown
+    au BufNewFile,BufRead *.md setlocal filetype=markdown
+    au BufNewFile,BufRead *.mdwn setlocal filetype=markdown
+    au BufNewFile,BufRead *.mkdn setlocal filetype=markdown
 
     " Use <localleader>1/2/3 to add headings.
     au Filetype markdown nnoremap <buffer> <localleader>1 yypVr=
@@ -626,12 +641,13 @@ augroup ft_php
   au BufNewFile,BufRead *.inc set filetype=php
   au BufNewFile,BufRead *.module set filetype=php.drupal
   au BufNewFile,BufRead *.install set filetype=php.drupal
+  au BufNewFile,BufRead *.profile set filetype=php.drupal
   au FileType php setlocal foldmethod=syntax
   au FileType php let g:php_folding=2
   au FileType php let g:php_sql_query=1
   au FileType php let g:php_htmlInStrings=1
-  " We only use phpcs if we have a standard to apply, so disable by default
-  au FileType drupal let g:syntastic_phpcs_conf='--standard=Drupal'
+  " guard + phpcs is superior
+  au FileType php let g:syntastic_phpcs_disable=1
 augroup END
 " }}}
 " Puppet {{{
@@ -697,6 +713,14 @@ augroup END
 augroup ft_vagrant
     au!
     au BufRead,BufNewFile Vagrantfile set ft=ruby
+augroup END
+
+" }}}
+" Berkshelf {{{
+
+augroup ft_berkshelf
+    au!
+    au BufRead,BufNewFile Berksfile set ft=ruby
 augroup END
 
 " }}}
@@ -1106,6 +1130,11 @@ let g:rbpt_max = 16
 
 
 " }}}
+" RagTag {{{
+
+let g:ragtag_global_maps = 1
+
+" }}}
 " Scratch {{{
 
 command! ScratchToggle call ScratchToggle()
@@ -1151,6 +1180,12 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_disabled_filetypes = ['html']
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
 let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
+
+" }}}
+" Tagbar {{{
+
+nnoremap <leader><C-t> :TagbarToggle<cr>
+let g:tagbar_autofocus = 1
 
 " }}}
 " Threesome {{{
