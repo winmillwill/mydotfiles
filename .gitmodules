@@ -1,24 +1,12 @@
-[submodule ".vim/bundle/vim-sparkup"]
-	path = .vim/bundle/vim-sparkup
-	url = https://github.com/kogakure/vim-sparkup.git
 [submodule ".vim/bundle/vimux"]
 	path = .vim/bundle/vimux
 	url = https://github.com/benmills/vimux.git
-[submodule ".vim/bundle/ack"]
-	path = .vim/bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/vim-afterimage"]
-	path = .vim/bundle/vim-afterimage
-	url = https://github.com/tpope/vim-afterimage.git
-[submodule ".vim/bundle/vim-abolish"]
-	path = .vim/bundle/vim-abolish
-	url = https://github.com/tpope/vim-abolish.git
 [submodule ".vim/bundle/vim-repeat"]
 	path = .vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
@@ -49,9 +37,6 @@
 [submodule ".vim/bundle/tagbar"]
 	path = .vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar
-[submodule ".vim/bundle/vim-orgmode"]
-	path = .vim/bundle/vim-orgmode
-	url = https://github.com/jceb/vim-orgmode.git
 [submodule ".vim/bundle/textile"]
 	path = .vim/bundle/textile
 	url = git://github.com/timcharper/textile.vim.git
@@ -61,21 +46,12 @@
 [submodule ".vim/bundle/ragtag"]
 	path = .vim/bundle/ragtag
 	url = git@github.com:tpope/vim-ragtag.git
-[submodule ".vim/bundle/wikilink"]
-	path = .vim/bundle/wikilink
-	url = git@github.com:mmai/wikilink.git
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
 	url = https://github.com/jnwhiteh/vim-golang
-[submodule ".vim/bundle/snipmate"]
-	path = .vim/bundle/snipmate
-	url = https://github.com/garbas/vim-snipmate.vim.git
 [submodule ".vim/bundle/phpcomplete"]
 	path = .vim/bundle/phpcomplete
 	url = git://github.com/shawncplus/phpcomplete.vim.git
-[submodule ".vim/bundle/PIV"]
-	path = .vim/bundle/PIV
-	url = git://github.com/spf13/PIV.git
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
