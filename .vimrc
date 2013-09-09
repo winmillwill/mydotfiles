@@ -8,8 +8,21 @@
 " Preamble ---------------------------------------------------------------- {{{
 
 set nocp
-set rtp+=$HOME/.vim/autoload/pathogen
-call pathogen#infect()
+set rtp+=$HOME/.vim/bundle/vundle
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-ragtag'
+Bundle 'benmills/vimux'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'kien/ctrlp.vim'
 syntax on
 filetype plugin indent on
 inoremap <c-q> <ESC>
