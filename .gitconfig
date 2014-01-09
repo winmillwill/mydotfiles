@@ -8,6 +8,7 @@
 	br = branch
 	sta = stash
 	llog = log --date=local
+	ctags = !.git/hooks/ctags
 [apply]
 	whitespace = nowarn
 [color]
@@ -22,8 +23,24 @@
 	default = matching
 [user]
 	name = Will Milton
-	email = will@promethost.com
+	email = wa.milton@gmail.com
 [mergetool "fugitive"]
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [mergetool]
 	tool = fugitive
+[merge]
+	tool = fugitive
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+	insteadOf = "github:"
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+[github]
+	user = winmillwill
