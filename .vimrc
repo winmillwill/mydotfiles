@@ -13,29 +13,32 @@ filetype off
 set rtp+=$HOME/.vim/bundle/vundle
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+" Bundle 'Valloric/YouCompleteMe'
+Bundle 'b4winckler/vim-objc'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Raimondi/delimitMate'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-ragtag'
+Bundle 'Shougo/neocomplete'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'benmills/vimux'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Bundle 'shawncplus/phpcomplete.vim'
-Bundle 'Shougo/vimproc'
-" Bundle 'Shougo/neocomplete'
-Bundle 'Shougo/unite.vim'
-Bundle 'm2mdas/phpcomplete-extended'
-Bundle 'kien/ctrlp.vim'
-Bundle 'honza/vim-snippets'
 Bundle 'embear/vim-localvimrc'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'evidens/vim-twig'
+Bundle 'honza/vim-snippets'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'kien/ctrlp.vim'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/paredit.vim'
+Bundle 'jelera/vim-javascript-syntax'
 
 syntax on
 filetype plugin indent on
@@ -355,6 +358,12 @@ set foldtext=MyFoldText()
 " }}}
 " Filetype-specific ------------------------------------------------------- {{{
 
+" Amethyst {{{
+augroup ft_amethyst
+    au!
+    au BufRead,BufNewFile .amethyst set ft=javascript
+augroup END
+" }}}
 " C {{{
 
 augroup ft_c
@@ -371,8 +380,8 @@ let g:slimv_keybindings = 2
 augroup ft_clojure
     au!
 
-    au FileType clojure call TurnOnClojureFolding()
-    au FileType clojure compiler clojure
+    " au FileType clojure call TurnOnClojureFolding()
+    " au FileType clojure compiler clojure
     au FileType clojure setlocal report=100000
 
     au BufWinEnter            SLIMV.REPL setlocal winfixwidth nolist
@@ -381,11 +390,12 @@ augroup ft_clojure
     au BufNewFile,BufReadPost SLIMV.REPL nnoremap <buffer> <localleader>R :emenu REPL.<Tab>
 
     " Fix the eval mappings.
-    au FileType clojure nnoremap <buffer> <localleader>ef :<c-u>call SlimvEvalExp()<cr>
-    au FileType clojure nnoremap <buffer> <localleader>ee :<c-u>call SlimvEvalDefun()<cr>
+    " au FileType clojure nnoremap <buffer> <localleader>ef :<c-u>call SlimvEvalExp()<cr>
+    " au FileType clojure nnoremap <buffer> <localleader>ee :<c-u>call SlimvEvalDefun()<cr>
 
     " And the inspect mapping.
     au FileType clojure nmap <buffer> \i \di
+    au FileType clojure inoremap ; :
 
     " Indent top-level form.
     au FileType clojure nmap <buffer> <localleader>= v((((((((((((=%
@@ -538,12 +548,6 @@ augroup ft_html
     " Use <localleader>t to fold the current templatetag.
     au FileType html,jinja,htmldjango nmap <buffer> <localleader>t viikojozf
 
-    " Smarter pasting
-    au FileType html,jinja,htmldjango nnoremap <buffer> p :<C-U>YRPaste 'p'<CR>v`]=`]
-    au FileType html,jinja,htmldjango nnoremap <buffer> P :<C-U>YRPaste 'P'<CR>v`]=`]
-    au FileType html,jinja,htmldjango nnoremap <buffer> π :<C-U>YRPaste 'p'<CR>
-    au FileType html,jinja,htmldjango nnoremap <buffer> ∏ :<C-U>YRPaste 'P'<CR>
-
     " Indent tag
     au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>= Vat=
 
@@ -575,7 +579,7 @@ augroup ft_javascript
 
     " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
     " positioned inside of them AND the following code doesn't get unfolded.
-    au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
+    au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space>.<cr><esc>kA<bs>
 augroup END
 
 " }}}
@@ -742,6 +746,14 @@ augroup END
 augroup ft_vagrant
     au!
     au BufRead,BufNewFile Vagrantfile set ft=ruby
+augroup END
+
+" }}}
+" Guard {{{
+
+augroup ft_guard
+    au!
+    au BufRead,BufNewFile Guardfile set ft=ruby
 augroup END
 
 " }}}

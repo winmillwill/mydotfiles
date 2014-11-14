@@ -1,5 +1,6 @@
 [core]
-	excludesfile = /Users/willmilton/.gitignore_global
+	excludesfile = /Users/will/.gitignore_global
+	pager = less -FXRS -x2
 [alias]
 	st = status
 	di = diff
@@ -9,6 +10,16 @@
 	sta = stash
 	llog = log --date=local
 	ctags = !.git/hooks/ctags
+	flog = log --pretty=fuller --decorate
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lol = log --graph --decorate --oneline
+	lola = log --graph --decorate --oneline --all
+	blog = log origin/master... --left-right
+	ds = diff --staged
+	fixup = commit --fixup
+	squash = commit --squash
+	unstage = reset HEAD
+	rum = rebase master@{u}
 [apply]
 	whitespace = nowarn
 [color]
@@ -25,7 +36,7 @@
 	name = Will Milton
 	email = wa.milton@gmail.com
 [mergetool "fugitive"]
-	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+	cmd = vim -f -c \"Gvdiff\" \"$MERGED\"
 [mergetool]
 	tool = fugitive
 [merge]
@@ -42,5 +53,11 @@
 	pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
+[url "http://git.drupal.org/project/"]
+  insteadOf = "drupal:"
 [github]
 	user = winmillwill
+[rebase]
+	autosquash = true
+[ghi]
+	token = 95ebd442228bee640c65edfae0a7fe66813aadb3
