@@ -27,6 +27,7 @@ Bundle 'evidens/vim-twig'
 Bundle 'honza/vim-snippets'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'kien/ctrlp.vim'
+Bundle 'lukerandall/haskellmode-vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'

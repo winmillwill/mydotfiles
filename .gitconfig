@@ -31,7 +31,7 @@
 [branch]
 	autosetupmerge = true
 [push]
-	default = matching
+	default = simple
 [user]
 	name = Will Milton
 	email = wa.milton@gmail.com
