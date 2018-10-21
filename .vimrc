@@ -10,36 +10,39 @@
 set nocp
 filetype off
 
-set rtp+=$HOME/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 
-" Bundle 'Valloric/YouCompleteMe'
-Bundle 'b4winckler/vim-objc'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Raimondi/delimitMate'
-Bundle 'Shougo/neocomplete'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'benmills/vimux'
-Bundle 'embear/vim-localvimrc'
-Bundle 'evidens/vim-twig'
-Bundle 'honza/vim-snippets'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'kien/ctrlp.vim'
-Bundle 'lukerandall/haskellmode-vim'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/paredit.vim'
-Bundle 'jelera/vim-javascript-syntax'
+call vundle#begin()
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'b4winckler/vim-objc'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'benmills/vimux'
+Plugin 'embear/vim-localvimrc'
+Plugin 'evidens/vim-twig'
+Plugin 'honza/vim-snippets'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'kien/ctrlp.vim'
+Plugin 'lukerandall/haskellmode-vim'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'fatih/vim-go'
+call vundle#end()
 
 syntax on
 filetype plugin indent on

@@ -42,7 +42,8 @@
 [merge]
 	tool = fugitive
 [url "git@github.com:"]
-	insteadOf = "gh:"
+	insteadOf = https://github.com/
+	insteadOf = gh:
 	pushInsteadOf = "github:"
 	pushInsteadOf = "git://github.com/"
 [url "git://github.com/"]
@@ -55,9 +56,15 @@
 	insteadOf = "gist:"
 [url "http://git.drupal.org/project/"]
   insteadOf = "drupal:"
-[github]
-	user = winmillwill
+[url "git@github.com:pantheon-cookbooks/"]
+	insteadOf = "pc:"
+[url "git@github.com:pantheon-systems/"]
+	insteadOf = "ps:"
 [rebase]
 	autosquash = true
-[ghi]
-	token = 95ebd442228bee640c65edfae0a7fe66813aadb3
+[magithub]
+	online = false
+[magithub "status"]
+	includeStatusHeader = false
+	includePullRequestsSection = false
+	includeIssuesSection = false
