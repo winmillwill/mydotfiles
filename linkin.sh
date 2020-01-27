@@ -1,14 +1,19 @@
 #!/bin/bash
 
-set -e -o pipefail
+# loop over the files that start with a dot and make symlinks to them in $HOME
 
-pushd $(dirname $0)
-dir=$PWD
-for file in `ls -a ${dir} | grep -E '^\.[^\.]+'`
-do
-  f=$(basename $file)
-  if [[ $f != ".git" ]]
-  then
-    ln -sf "${dir}/${file}" "$HOME/$f"
-  fi
+set -eu -o pipefail
+
+pushd "$(dirname "$0")"
+dir="${PWD}"
+ignore=( .git .gitignore )
+find_cmd=( find . -path ./.\* -maxdepth 1 )
+
+for i in "${ignore[@]}"; do
+    find_cmd=("${find_cmd[@]}" -not -path "./${i}")
+done
+
+for file in $("${find_cmd[@]}"); do
+    f="$(basename "$file")"
+    ln -sf "${dir}/${f}" "$HOME/$f"
 done
