@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/will/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
 	st = status
@@ -41,7 +41,7 @@
 	tool = fugitive
 [merge]
 	tool = fugitive
-[url "git@github.com:"]
+[url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 	insteadOf = gh:
 	pushInsteadOf = "github:"
@@ -56,9 +56,9 @@
 	insteadOf = "gist:"
 [url "http://git.drupal.org/project/"]
   insteadOf = "drupal:"
-[url "git@github.com:pantheon-cookbooks/"]
+[url "ssh://git@github.com/pantheon-cookbooks/"]
 	insteadOf = "pc:"
-[url "git@github.com:pantheon-systems/"]
+[url "ssh://git@github.com/pantheon-systems/"]
 	insteadOf = "ps:"
 [rebase]
 	autosquash = true
